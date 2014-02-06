@@ -16,11 +16,19 @@ int main(){
 
     int c = a + b;
 
+    // if c < 0 ,manually set it to positive for simplicity
+    if (c < 0) {
+        cout<<"-";
+        c=-c;
+    }
+   
     stringstream stringStream;
     stringStream<<c; // int to stringstream
+
     string s = stringStream.str();
 
-    for(int i = s.size()-3; i > 0 && s[i-1] != '-'; i-=3)
+
+    for(int i = s.size()-3; i > 0 ; i-=3)
         s.insert(i,",");
 
     cout<<s<<endl;
