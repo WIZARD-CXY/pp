@@ -26,9 +26,9 @@ void dijkstra(int n, int source){
        dist[i]=w[source][i];
 
        if(dist[i] < MAX_INT){
-           pre[i]=source;
-       }
-    }
+            pre[i]=source;
+        }
+     }
 
     vis[source]=1;
     dist[source]=0;
@@ -79,7 +79,7 @@ void dfs(int n, int src, int dst, int curDis, int curTeamnum){
 		return;
 
 	for(int i=0; i<n; i++){
-		if(!vis[i] && w[src][i] <MAX_INT){
+		if(!vis[i] && w[src][i] < MAX_INT){
 			dfs(n,i,dst,curDis+w[src][i],curTeamnum+team[i]);
 			vis[i]=0;
 		}
@@ -90,7 +90,7 @@ void dfs(int n, int src, int dst, int curDis, int curTeamnum){
 
 int main(){
 
-	//freopen("1003.txt","r",stdin);
+	freopen("1003.txt","r",stdin);
 	
 	int src,dst;
     int c1,c2,l;
