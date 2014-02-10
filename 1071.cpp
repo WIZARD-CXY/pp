@@ -68,5 +68,4 @@ int main(){
     getline(cin,str);
     pair<string,int> res=func(str);
     cout<<res.first<<" "<<res.second<<endl;
-    
 }
