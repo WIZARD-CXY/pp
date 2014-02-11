@@ -41,7 +41,7 @@ void dijk(int start){
         vis[min_idx]=1;
 
         for(int i=1; i<=m+n; i++){
-            if(w[min_idx][i] < INT_MAX && i != min_idx){
+            if(w[min_idx][i] < INT_MAX && !vis[i]){
                 if(dist[i] > (dist[min_idx]+w[min_idx][i])){
                     dist[i]=dist[min_idx]+w[min_idx][i];
                 }
