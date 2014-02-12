@@ -12,7 +12,6 @@ int main(){
     
     int begin=0,end=0,sum=-1;
 
-
     int k;
     cin>>k;
 

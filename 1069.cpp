@@ -50,8 +50,7 @@ string getNextNumber(string str){
         str[str.size()-1-i]=temp;
     }
 
-    stringStream.str("");
-    stringStream.clear();
+    s
 
     int bign;
     stringStream<<str;
@@ -95,5 +94,5 @@ int main(){
 
     while( result != "6174"){
         result=getNextNumber(result);
-    };
+    }
 }
