@@ -41,7 +41,8 @@ int main(){
         //find earliest leave customer
         int min_wait=0x7fffffff;
         int found = 0;
-
+        
+        //n is #window
         for(int j=0; j<n; j++){
             int customer = que[j].front();
             
