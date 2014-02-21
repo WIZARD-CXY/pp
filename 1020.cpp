@@ -12,7 +12,7 @@ using namespace std;
 int postorder[35];
 int inorder[35];
 int N;
-
+int n,ml;
 struct bt_node{
     int data;
     bt_node *left;
