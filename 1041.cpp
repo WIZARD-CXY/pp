@@ -30,7 +30,6 @@ int main(){
 
     cout<<"None"<<endl;
 
-
 }
 
 
