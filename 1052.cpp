@@ -50,7 +50,7 @@ int main(){
         return 0;
     } else {
         int curaddr=head;
-        while ( curaddr>=0 && curaddr <MAXN && curaddr!=-1 && isExist[curaddr]){
+        while ( curaddr!=-1 && isExist[curaddr]){
             rec.push_back(mmap[curaddr]);
             curaddr=mmap[curaddr].next;
         }
