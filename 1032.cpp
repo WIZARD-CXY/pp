@@ -3,9 +3,12 @@
 using namespace std;
 
 bool vis[100001];
-int next[100001];
+int nextaddr[100001];
 
 int main(){
+#ifdef d
+    freopen("1032.txt","r",stdin);
+#endif
     int s1,s2,n;
     cin>>s1>>s2>>n;
 
@@ -13,20 +16,20 @@ int main(){
        int a,b;
        char c;
        cin>>a>>c>>b;
-       next[a]=b;
+       nextaddr[a]=b;
     }
     // visit list which head is s1
     // and mark the corresponding node be visited
     int p=s1;
     while(p!=-1){
         vis[p]=1;
-        p=next[p];
+        p=nextaddr[p];
     }
 
     int p2=s2;
     
-    while(p2!=-1 && !vis[p]){
-       p=next[p];
+    while(p2!=-1 && !vis[p2]){
+       p2=nextaddr[p2];
     }
 
     if(p2!=-1){
