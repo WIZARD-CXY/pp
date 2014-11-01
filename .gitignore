@@ -12,3 +12,6 @@
 *.la
 *.a
 a.out
+
+# backup file
+*~
