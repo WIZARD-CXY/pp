@@ -5,6 +5,7 @@
 #include <algorithm>
 using namespace std;
 bool map[500];
+
 char Capitalize(char c)
 {
     if( c<='z' && c >= 'a')
@@ -48,7 +49,8 @@ int main()
         for(;originIdx<origin.size();originIdx++){
             it=find(res.begin(),res.end(),Capitalize(origin[originIdx]));
 
-            if( it == res.end() && !map[origin[originIdx]]) //not found in the list and not met before
+            if( it == res.end() && !map[origin[originIdx]]) //not found in the list and not met before 
+            //just new!! 
             {
                 res.push_back(Capitalize(origin[originIdx]));
             }
