@@ -9,6 +9,7 @@
 #include<string>
 #include<cstdio>
 #include<cstdlib>
+#include<sstream>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ int main(){
     freopen("1073.txt","r",stdin);
     string s;
     cin>>s;
+    stringstream ss;
 
     if(s[0]=='-'){
         cout<<"-";
@@ -30,7 +32,9 @@ int main(){
     string expS = s.substr(found+1);
 
     if(expS[0]=='-'){
-        exp=atoi(expS.substr(1).c_str());
+
+        ss<<expS.substr(1);
+        ss>>exp;
         cout<<"0.";
         for(int i=0; i<exp-1;i++){
             cout<<"0";
@@ -42,7 +46,8 @@ int main(){
             }
         }
     }else{
-        exp=atoi(expS.substr(1).c_str());
+        ss<<expS.substr(1);
+        ss>>exp;
 
         cout<<coffS[0];
         int fractionlength=coffS.size()-2;
