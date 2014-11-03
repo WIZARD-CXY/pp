@@ -24,6 +24,7 @@ int main(){
     cin>>startaddr>>n>>k;
 
     vector<record*> rec;
+    vector<record*> reverse_rec;
 
     map<string,record*> mm;
 
@@ -35,21 +36,25 @@ int main(){
     
     string temp=startaddr;
     while(mm[temp]->next != "-1"){
-        
         rec.push_back(mm[temp]);
         temp=mm[temp]->next;
     }
+    rec.push_back(mm[temp]);
+
     int i;
     for(i=0; i<n/k; i++){
         for(int j=0; j<k; j++){
-            cout<<rec[k*(i+1)-j-1]->addr<<" "<<rec[k*(i+1)-j-1]->data<<" "<<rec[k*(i+1)-j-1]->next<<endl;
+            reverse_rec.push_back(rec[(i+1)*k-j-1]);
         }
     }
     if(i*k<n){
-        for(int j=i*k-1; j<n; j++){
-            cout<<rec[j]->addr<<" "<<rec[j]->data<<" "<<rec[j]->next<<endl;
-
-
+        for(int j=i*k; j<n; j++){
+            reverse_rec.push_back(rec[j]);
         }
     }
+
+    for(int j=0; j< reverse_rec.size()-1; j++){
+        cout<<reverse_rec[j]->addr<<" "<<reverse_rec[j]->data<<" "<<reverse_rec[j+1]->addr<<endl;
+    }
+    cout<<reverse_rec[n-1]->addr<<" "<<reverse_rec[n-1]->data<<" -1"<<endl;
 }
