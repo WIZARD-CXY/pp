@@ -11,50 +11,53 @@ using namespace std;
 #include<map>
 #include<cstdio>
 struct record{
-    string addr;
+    int addr;
     int data;
-    string next;
+    int next;
 };
 
 int main(){
     freopen("1074.txt","r",stdin);
 
-    string startaddr;
+    int startaddr;
     int n,k;
-    cin>>startaddr>>n>>k;
+    scanf("%d%d%d",&startaddr, &n, &k);
 
     vector<record*> rec;
     vector<record*> reverse_rec;
 
-    map<string,record*> mm;
+    map<int,record*> mm;
 
     for(int i=0; i<n; i++){
         record* temp=new record;
-        cin>>temp->addr>>temp->data>>temp->next;
+        scanf("%d%d%d",&(temp->addr), (&temp->data), (&temp->next));
         mm[temp->addr]=temp;
     }
     
-    string temp=startaddr;
-    while(mm[temp]->next != "-1"){
+    int temp=startaddr;
+    while(mm[temp]->next != -1){
+
+        if(mm.find(mm[temp]->next) == mm.end()) break; //next key isn't in the map
         rec.push_back(mm[temp]);
         temp=mm[temp]->next;
     }
     rec.push_back(mm[temp]);
 
     int i;
-    for(i=0; i<n/k; i++){
+
+    for(i=0; i<rec.size()/k; i++){
         for(int j=0; j<k; j++){
             reverse_rec.push_back(rec[(i+1)*k-j-1]);
         }
     }
-    if(i*k<n){
-        for(int j=i*k; j<n; j++){
+    if(i*k<rec.size()){
+        for(int j=i*k; j<rec.size(); j++){
             reverse_rec.push_back(rec[j]);
         }
     }
 
     for(int j=0; j< reverse_rec.size()-1; j++){
-        cout<<reverse_rec[j]->addr<<" "<<reverse_rec[j]->data<<" "<<reverse_rec[j+1]->addr<<endl;
+    printf("%05d %d %05d\n",reverse_rec[j]->addr, reverse_rec[j]->data,reverse_rec[j+1]->addr);
     }
-    cout<<reverse_rec[n-1]->addr<<" "<<reverse_rec[n-1]->data<<" -1"<<endl;
+    printf("%05d %d -1\n",reverse_rec[reverse_rec.size()-1]->addr,reverse_rec[reverse_rec.size()-1]->data);
 }
