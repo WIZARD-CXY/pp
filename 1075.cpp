@@ -50,7 +50,7 @@ int main(){
         scanf("%d",&p[i]);
     }
     for(int i=1; i<=n; i++){
-        user[uid].id=uid;
+        user[i].id=i;
         user[i].flag=false;
         for(int j=1; j<=k; j++){
             user[i].score[j]=-2;
@@ -103,15 +103,15 @@ int main(){
 
     int idx;
     int len;
-    if(n>1 && user[1].gradesum != user[2].gradesum){
-        len=1;
+    if(n>1 && user[1].gradesum == user[2].gradesum){
         idx=1;
+        len=2;
     }else{
         idx=2;
         len=1;
     }
 
-    for(int i=2; i<n; i++){
+    for(int i=2; i<=n; i++){
         if(user[i].flag == false) continue;
 
         if(user[i].gradesum == user[i-1].gradesum){
@@ -126,9 +126,11 @@ int main(){
                     printf(" -");
                 }
             }
-            len++;
+            if(i!=2)
+       		    len++;
         } else {
-            idx+=len;
+            if(i!=2)
+              idx+=len;
             len=1;
             printf("%d %05d %d",idx, user[i].id, user[i].gradesum);
 
@@ -141,7 +143,8 @@ int main(){
                     printf(" -");
                 }
             }
-            
+           
+ 
         }
         printf("\n");
     }
