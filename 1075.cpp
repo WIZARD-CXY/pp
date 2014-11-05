@@ -13,6 +13,7 @@ using namespace std;
 #include<algorithm>
 
 struct rec{
+    int rank;
     int id;
     int gradesum;
     int score[6];// record the ith problem score
@@ -50,7 +51,7 @@ int main(){
         scanf("%d",&p[i]);
     }
     for(int i=1; i<=n; i++){
-        user[uid].id=uid;
+        user[i].id=i;
         user[i].flag=false;
         for(int j=1; j<=k; j++){
             user[i].score[j]=-2;
@@ -72,7 +73,9 @@ int main(){
                 }
             }
         }else if(score == -1){
-            user[uid].score[proid]=score;
+            if(score > user[uid].score[proid]){
+               user[uid].score[proid]=score;
+            }
         }
     }
 
@@ -101,21 +104,14 @@ int main(){
 
     printf("\n");
 
-    int idx;
-    int len;
-    if(n>1 && user[1].gradesum != user[2].gradesum){
-        len=1;
-        idx=1;
-    }else{
-        idx=2;
-        len=1;
-    }
+    user[1].rank=1;
 
-    for(int i=2; i<n; i++){
+    for(int i=2; i<=n; i++){
         if(user[i].flag == false) continue;
 
         if(user[i].gradesum == user[i-1].gradesum){
-            printf("%d %05d %d",idx, user[i].id,user[i].gradesum);
+            user[i].rank=user[i-1].rank;
+            printf("%d %05d %d", user[i].rank, user[i].id,user[i].gradesum);
 
             for(int j=1; j<=k; j++){
                 if(user[i].score[j]>=0){
@@ -126,11 +122,9 @@ int main(){
                     printf(" -");
                 }
             }
-            len++;
         } else {
-            idx+=len;
-            len=1;
-            printf("%d %05d %d",idx, user[i].id, user[i].gradesum);
+            user[i].rank=i;
+            printf("%d %05d %d", user[i].rank, user[i].id,user[i].gradesum);
 
             for(int j=1; j<=k; j++){
                 if(user[i].score[j]>=0){
@@ -141,7 +135,8 @@ int main(){
                     printf(" -");
                 }
             }
-            
+           
+ 
         }
         printf("\n");
     }
