@@ -1,74 +1,111 @@
 /*************************************************************************
-	> File Name: 1043.cpp
+	> File Name: 1043_.cpp
 	> Author: 
 	> Mail: 
-	> Created Time: Thu 30 Oct 2014 07:40:16 PM CST
+	> Created Time: Thu 30 Oct 2014 10:13:38 PM CST
  ************************************************************************/
 
 #include<iostream>
 using namespace std;
-#include <cstdio>
-#include <algorithm>
-#include <cstring>
+#include<cstring>
+#include<cstdio>
 
-int preorder[1001];
-int inorder[1001];
-int postorder[1001];
+using namespace std;
 
-//if build return fail it is indicate output NO
-int build(int n, int *s1, int *s2, int* postorder){
-    int flag1;
-    int flag2;
-    if(n>0){
-        int pos;
-        for(pos=0; pos<n; n++){
-            if(s2[pos]==s1[0]){
-                break;
+int pre[1001];
+int preImg[1001];
+int post[1001];
+int gindex=0;
+int gindex2=0;
 
+bool isMirrored;
+
+struct node{
+    node *left;
+    node *right;
+    int key;
+};
+
+void insertNode(node *&p, int key, bool isM){
+    if(p==NULL){
+        p=new node();
+        p->left=NULL;
+        p->right=NULL;
+        p->key=key;
+        return;
+    }
+    else{
+        if(isM){
+            if(key<p->key){
+                insertNode(p->right,key,isM);
+            }else{
+                insertNode(p->left,key,isM);
+            }
+        }else {
+            if(key<p->key){
+                insertNode(p->left,key,isM);
+            }else{
+                insertNode(p->right,key,isM);
             }
         }
+    }
 
-        for(int i=0; i<pos; i++){
-            if(inorder[i]<s1[0]){
-               flag1=0;
-            }
-        }
-        for(int i=pos+1; i<n; i++){
-            if(inorder[i]<s1[0]){
-                flag2=0;
-            }
-        }
-        if(flag1)
-             
+}
 
-        build(pos,s1+1,s2,postorder);
-        build(n-pos-1,s1+pos+1,s2+pos+1,postorder+pos);
-
+void createBSTree(node *&root, int *arr,int n, bool isM){
+    for(int i=0; i<n; i++){
+        insertNode(root, arr[i],isM);
     }
 }
+
+void postOrder(node *root){
+    if(root){
+        postOrder(root->left);
+        postOrder(root->right);
+        post[gindex++]=root->key;
+    }
+}
+void preOrder(node *root){
+    if(root){
+        preImg[gindex2++]=root->key;
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+}
+
 int main(){
+    freopen("1043.txt","r",stdin);
+
+
     int n;
     cin>>n;
-    
+
     for(int i=0; i<n; i++){
-        cin>>preorder[i];
-        inorder[i]=preorder[i];
+        cin>>pre[i];
     }
+    if(pre[1]<pre[0]){
+        isMirrored=false;
 
-    sort(inorder,inorder+n);
-    if(!build(n,preorder,inorder,postorder)){
-        cout<<"NO"<<endl;
-    }else {
-        cout<<"YES"<<endl;
-        for(int i=0; i<n; i++){
-            
-            if(i==0){
-              cout<<postorder[i];
-            }
-            else{
-                cout<<" "<<postorder[i];
-            }
+    }else{
+        isMirrored=true;
+    }
+    node *root=NULL;
+    createBSTree(root,pre,n,isMirrored);
+    preOrder(root);
 
+    for(int i=0; i<n; i++){
+        if(pre[i]!=preImg[i]){
+           cout<<"NO"<<endl;
+            return 0;
         }
     }
+    cout<<"YES"<<endl;
+    postOrder(root);
+
+    cout<<post[0];
+    for(int i=1; i<n; i++){
+        cout<<" "<<post[i];
+    }
+    cout<<endl;
+
 }
