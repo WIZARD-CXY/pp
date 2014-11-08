@@ -83,7 +83,7 @@ int main(){
                 lastrank[currchoice]=stu_vec[i].rank;
                 break;
 
-            } else if(schoolRes[currchoice].size() > 0){
+            } else {
                 if(stu_vec[i].rank == lastrank[currchoice]){
                 schoolRes[currchoice].push_back(currid);
                 break;
