@@ -37,7 +37,6 @@ int main(){
     for(int i=0; i<54; i++){
         cin>>pattern[i];
         a[i]=a_bk[i]=i;
-        
     }
 
     while(n--){

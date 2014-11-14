@@ -10,7 +10,6 @@ using namespace std;
 #include<cstdio>
 int len[201][10001];
 
-
 int LCS(int row,int col, int a[],int b[]){
     int i,j;
     int max;
