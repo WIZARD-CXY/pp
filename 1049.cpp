@@ -26,7 +26,6 @@ int CountOnes(int n){
             break;
             default:
             count += higher*factor + factor;
-
         }
         factor = factor * 10;
 

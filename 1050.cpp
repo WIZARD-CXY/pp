@@ -25,4 +25,3 @@ int main(){
         if(!isExist[s1[i]]) printf("%c",s1[i]);
     }
 }
-
