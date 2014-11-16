@@ -35,6 +35,8 @@ bool cmp2(const rec &a, const rec &b){
         return false;
     }
 }
+int agecount[201]; //agecount[i] indicates people's total num whose age is i
+
 
 int main(){
     freopen("1055.txt","r",stdin);
@@ -47,28 +49,39 @@ int main(){
         scanf("%s%d%d",records[i].name, &records[i].age, &records[i].networth);
     }
 
+    sort(records.begin(), records.end(), cmp2);
+
+    int filtered_num = 0;// record the filtered total people number;
+    int filter[n];
+
+    for(int i=0; i<n; i++){
+        if((++agecount[records[i].age])<101){
+            filter[filtered_num++]=i;
+        }
+    }
+
     for(int i=0; i<k; i++){
         int m;
         int Amin,Amax;
         scanf("%d%d%d", &m, &Amin, &Amax);
+        printf("Case #%d:\n",i+1);
 
-        vector<rec> res;
-        for(int j=0; j<n; j++){
-            if(records[j].age<=Amax && records[j].age >= Amin){
-                res.push_back(records[j]);
+        int count=0;
+        bool flag=true;
+
+        for(int j=0; j<filtered_num; j++){
+            int filtered_index=filter[j];
+            if(records[filtered_index].age<=Amax && records[filtered_index].age >= Amin){
+                printf("%s %d %d\n",records[filtered_index].name,records[filtered_index].age, records[filtered_index].networth);
+                flag=false;
+                count++;
+                if(count>=m){
+                    break;
+                }
             }
         }
-
-        sort(res.begin(),res.end(),cmp2);
-
-        printf("Case #%d:\n",i+1);
-        if(res.size()==0){
+        if(flag){
             printf("None\n");
-            continue;
-        }
-        for(int j=0; j<m && j<res.size(); j++){
-            printf("%s %d %d\n",res[j].name, res[j].age, res[j].networth);
-            
         }
     }
 }
