@@ -40,7 +40,7 @@ int main(){
             int max=-1;
             int maxIdx=-1;
 
-            for(int j=i*ng; j<i*ng+ng && order.size()!=0; j++){
+            for(int j=i*ng; j<i*ng+ng && order.size()!=0; j++){// end of the round group may have less than ng mice ,so order.size()!=0 condition
                 int index=order.front();
                 order.pop();
                 if(w[index]>max){
