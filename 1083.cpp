@@ -48,5 +48,4 @@ int main(){
     if(empty){
         cout<<"NONE"<<endl;
     }
-
 }

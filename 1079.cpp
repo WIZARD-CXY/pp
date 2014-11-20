@@ -13,7 +13,6 @@ using namespace std;
 vector<int> G[MAX];
 int productnum[MAX];
 
-
 double dfs(int node, double p, double r){
     double myPrice;
     if(node==0){
@@ -47,7 +46,6 @@ int main(){
         cin>>cnt;
         if(cnt==0){
             cin>>productnum[i];
-
         } else {
             for(int j=0; j<cnt; j++){
                 int v;
@@ -55,7 +53,6 @@ int main(){
                 G[i].push_back(v);
             }
         }
-
     }
     printf("%.1lf\n",dfs(0,p,r));
 }

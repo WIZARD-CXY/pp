@@ -55,15 +55,9 @@ int main(){
         if(j==m){
             if(i==0){
                 printf("-");
-
             }else{
                 printf(" -");
             }
         }
-
     }
-        
 }
-        
-
-

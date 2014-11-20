@@ -24,6 +24,7 @@ struct stu{
 
 vector<int> schoolRes[MAXSCHOOL];
 int lastrank[MAXSCHOOL];
+
 bool cmp(const stu &a, const stu &b){
     if((a.ge+a.gi) > (b.ge+b.gi)){
         return true;
@@ -68,9 +69,7 @@ int main(){
         }else{
             stu_vec[i].rank=i;
         }
-
     }
-
     
     for(int i=0; i<stu_vec.size(); i++){
         int currid=stu_vec[i].id;
