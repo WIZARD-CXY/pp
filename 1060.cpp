@@ -6,7 +6,7 @@ using namespace std;
 
 int convert(const char* c,int n,char* &res)
 {
-	int point,count; //point indicate the power number of 10, , count means 
+	int point,count; //point indicate the power number of 10, count means 
 	point = count = 0;// how many digit has been copied from c to res;
 	int i=0,j=0;
 	while(c[i]=='0')i++;		//先略去最前面的'0'
@@ -36,7 +36,7 @@ int convert(const char* c,int n,char* &res)
 			}
 			i++;
 		}
-		if(!isBegin)point=0;
+		if(!isBegin) point=0;
 	}else								//形式为 (0)*#.##
 	{
 		j=i;
@@ -75,7 +75,7 @@ int convert(const char* c,int n,char* &res)
 int main()
 {
    freopen("1060.txt","r",stdin);
-    int n;
+   int n;
    cin>>n;
    char A[105],B[105];
    cin>>A>>B;

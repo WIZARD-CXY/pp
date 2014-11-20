@@ -14,6 +14,7 @@ int t[1001],a[1001],n;
 int m=1;
 
 void inorderTrav(int index){
+    
     if(index*2 <=n){
         inorderTrav(index*2);
     }
@@ -23,13 +24,27 @@ void inorderTrav(int index){
     }
 }
 
+void printInorder(int index){
+    if(2*index<=n){
+        printInorder(2*index);
+    }
+    printf("%d ",t[index]);
+    if(2*index+1<=n){
+        printInorder(2*index+1);
+    }
+}
+
 int main(){
+    freopen("1064.txt","r",stdin);
+
     scanf("%d",&n);
     for(int i=1; i<=n; i++){
         scanf("%d",&a[i]);
     }
 
-    sort(a+1,a+n+1);
+    sort(a+1,a+n+1);// a is now binary search tree inorderTrav res;
+    // t is the array presentation of binarysearchtree
+    // if t[i] is root t[2*i] is left child t[2*i+1] is the right child
 
     inorderTrav(1);
 
@@ -37,4 +52,7 @@ int main(){
         printf("%d",t[i]);
         if(i!=n) printf(" ");
     }
+
+    cout<<endl;
+    printInorder(1);
 }

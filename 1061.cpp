@@ -2,10 +2,9 @@
 using namespace std;
 #include <cstdio>
 string hh[24]={"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"};
+
 int main(){
-#ifdef d
-   freopen("1061.txt","r",stdin);
-#endif
+    freopen("1061.txt","r",stdin);
     string s1,s2,s3,s4;
 
     cin>>s1>>s2>>s3>>s4;
@@ -75,7 +74,3 @@ int main(){
 	    }
     }
 }
-
-
-
-

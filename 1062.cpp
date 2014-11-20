@@ -10,9 +10,10 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 #include <cstdio>
+#include <cstring>
 
 struct Record{
-    string id;
+    char id[9];
     int virtueG;
     int talentG;
 };
@@ -24,7 +25,7 @@ bool cmptotal(const Record &a, const Record &b){
         if(a.virtueG>b.virtueG){
             return true;
         } else if(a.virtueG == b.virtueG){
-            if(a.id < b.id){
+            if(strcmp(a.id, b.id)<0){
                 return true;
             } else {
                 return false;
@@ -42,10 +43,9 @@ vector<Record> rageGroup;
 vector<Record> nobleGroup;
 vector<Record> foolGroup;
 vector<Record> otherGroup;
+
 int main(){
-#ifdef d
     freopen("1062.txt","r",stdin);
-#endif
     int n,l,h;
 
     int m=0;
@@ -53,8 +53,8 @@ int main(){
 
     Record rec;
     for(int i=0; i<n;i++){
-        cin>>rec.id;
-        scanf("%d %d",&rec.virtueG,&rec.talentG);
+        
+        scanf("%s %d %d",rec.id, &rec.virtueG,&rec.talentG);
         if(rec.virtueG>=h && rec.talentG >=h){
             m++;
             rageGroup.push_back(rec);
@@ -77,30 +77,26 @@ int main(){
     vector<Record>::iterator it=rageGroup.begin();
 
     for( it=rageGroup.begin(); it != rageGroup.end(); it++){
-        printf("%s %d %d\n",it->id.c_str(),it->virtueG,it->talentG);
+        printf("%s %d %d\n", it->id,it->virtueG,it->talentG);
     }
 
 
     sort(nobleGroup.begin(),nobleGroup.end(),cmptotal);
 
     for( it=nobleGroup.begin(); it != nobleGroup.end(); it++){
-        printf("%s %d %d\n",it->id.c_str(),it->virtueG,it->talentG);
+        printf("%s %d %d\n", it->id, it->virtueG, it->talentG);
     }
 
 
 
     sort(foolGroup.begin(),foolGroup.end(),cmptotal);
     for( it=foolGroup.begin(); it != foolGroup.end(); it++){
-        printf("%s %d %d\n",it->id.c_str(),it->virtueG,it->talentG);
+        printf("%s %d %d\n", it->id, it->virtueG, it->talentG);
     }
     
 
     sort(otherGroup.begin(),otherGroup.end(),cmptotal);
     for( it=otherGroup.begin(); it != otherGroup.end(); it++){
-        printf("%s %d %d\n",it->id.c_str(),it->virtueG,it->talentG);
+        printf("%s %d %d\n", it->id, it->virtueG, it->talentG);
     }
 }
-
-
-
-

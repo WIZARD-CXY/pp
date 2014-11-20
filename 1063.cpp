@@ -12,9 +12,7 @@ using namespace std;
 #include <vector>
 
 int main(){
-#ifdef d
     freopen("1063.txt","r",stdin);
-#endif
 
     int n,m,k;
 
@@ -47,7 +45,6 @@ int main(){
         int nc=0;
         int nt=vecs[x].size()+vecs[y].size();
 
-
         for(int i=0,j=0; i<vecs[x].size() && j<vecs[y].size();)
         {
             if(vecs[x][i]==vecs[y][j]){
@@ -62,4 +59,3 @@ int main(){
         printf("%.1lf%%\n",nc*100.0/nt);
     }
 }
-
