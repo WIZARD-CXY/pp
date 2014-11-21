@@ -36,8 +36,6 @@ int main(){
         return 0;
     }
 
-
-
     for(int i=e; i<digit.size(); i++){
         if(i!=0 && (digit[i]!=0 || i==4 || i==8)){
             res.push_back(b[i]);
@@ -45,22 +43,31 @@ int main(){
         res.push_back(a[digit[i]]);
     }
 
+    int cnt=0;
+
     for(int i=res.size()-1; i>=0; i--){
-        if( i!=res.size()-1 ){
-            cout<<" ";
+        if( i!=res.size()-1 && cnt != 4){
+            cout<<" "; // in case we do not output another " " if wan is omitted
         }
-        int cnt=0;
+        cnt=0;
 
         while(i>=0 && res[i]=="ling"){
             i--;
             cnt++;
         }
         if(cnt!=0 && res[i]!="Wan"){
+            // only to say one 0 instead of many 0
             cout<<"ling ";
         }
-        cout<<res[i];
-    }
+        
+        if(cnt>=4){
+           //if wan is 0, shiwan is 0 ,baiwan is 0 ,and qianwan is 0
+           // we do not say "wan"
+        }else {
+            cout<<res[i];
 
+        }
+    }
     if(e==5 || e==6 || e==7){
         cout<<" Wan";
     }
