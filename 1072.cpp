@@ -69,7 +69,7 @@ int getInt(string str){
 int main(){
 
     int gas_station=-1;
-    //freopen("1072.txt","r",stdin);
+    freopen("1072.txt","r",stdin);
 
     cin>>n>>m>>k>>d; //d is max serve range
 

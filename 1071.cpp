@@ -62,7 +62,6 @@ pair<string,int> func(const string &line){
 }
 
 
-
 int main(){
     string str;
     getline(cin,str);
