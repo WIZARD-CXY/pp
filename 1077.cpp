@@ -29,6 +29,7 @@ int main(){
             minlength=s.size();
         }
     }
+    
     int j;
     bool flag=true;
 

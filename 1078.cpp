@@ -36,6 +36,7 @@ int main(){
             }
         }
     }
+    
     int temp;
     for(int i=0; i<n; i++){
         scanf("%d",&temp);

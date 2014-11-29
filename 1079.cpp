@@ -4,7 +4,6 @@
 	> Mail: 
 	> Created Time: Sat 08 Nov 2014 06:29:53 PM CST
  ************************************************************************/
-
 #include<iostream>
 #include<cstdio>
 #include<vector>

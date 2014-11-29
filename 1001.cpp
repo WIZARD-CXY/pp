@@ -25,8 +25,8 @@ int main(){
     stringstream stringStream;
     stringStream<<c; // int to stringstream
 
-    string s = stringStream.str();
-
+    string s;
+    stringStream>>s;
 
     for(int i = s.size()-3; i > 0 ; i-=3)
         s.insert(i,",");

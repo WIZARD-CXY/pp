@@ -4,7 +4,6 @@
 	> Mail: 
 	> Created Time: Wed 05 Nov 2014 08:31:52 PM CST
  ************************************************************************/
-
 #include<iostream>
 using namespace std;
 #include<cstdio>
@@ -17,6 +16,7 @@ int vis[MAX];
 int depth[MAX];
 int n,l;
 int cnt;
+
 void bfs(int src){
     queue<int> qq;
     memset(vis,0,sizeof(vis));
@@ -48,7 +48,6 @@ int main(){
     freopen("1076.txt","r",stdin);
 
     cin>>n>>l;
-
 
     for(int i=1; i<=n; i++){
         int cnt;

@@ -23,7 +23,6 @@ int road_cnt[201];
 int n,k;
 
 void dijk(int src){
-    
     for(int i=0; i<n; i++){
         dis[i]=w[src][i];
     }
@@ -80,7 +79,6 @@ void print(int dst,int src){
     cout<<num2name[pre[dst]]<<"->";
 
 }
-
 
 void printRes(){
     cout<<road_cnt[name2num["ROM"]]<<" "<<dis[name2num["ROM"]]<<" "<<final_happiness[name2num["ROM"]]<<" "<<final_happiness[name2num["ROM"]]/pre_city_cnt[name2num["ROM"]]<<endl;

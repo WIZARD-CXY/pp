@@ -59,5 +59,4 @@ int main(){
     }else{
         printf("%lld %lld/%lld\n",prefix,finalnominator2,commondeno);
     }
-
 }

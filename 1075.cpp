@@ -18,7 +18,7 @@ struct rec{
     int gradesum;
     int score[6];// record the ith problem score
     int solved;// record the num of fully solved problem
-    bool flag; //indicate if he is submitted valid solution
+    bool flag; //indicate whether he is submitted valid solution or not 
 };
 
 bool cmp(const rec &a, const rec &b){
@@ -135,8 +135,6 @@ int main(){
                     printf(" -");
                 }
             }
-           
- 
         }
         printf("\n");
     }
