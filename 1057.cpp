@@ -32,9 +32,8 @@ void adjust(){
         minm.insert(*it);
         maxm.erase(it);
     }else{
-        
     }
-
+    
     if(s.size()>0){
         mid=*(--minm.end());
     }

@@ -4,7 +4,6 @@
 	> Mail: 
 	> Created Time: Mon 03 Nov 2014 08:23:39 PM CST
  ************************************************************************/
-
 #include<iostream>
 #include<string>
 #include<cstdio>
@@ -64,7 +63,6 @@ int main(){
         }else if( exp==fractionlength ){
             for(int i=0; i<exp; i++){
                 cout<<coffS[i+2];
-
             }
         }else{
             for(int i=2; i<coffS.size(); i++){
@@ -76,8 +74,6 @@ int main(){
             
         }
         
-
     }
     cout<<endl;
 }
-

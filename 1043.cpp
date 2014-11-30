@@ -51,7 +51,7 @@ void insertNode(node *&p, int key, bool isM){
     }
 
 }
-// mode *&root is necessary!!
+// node *&root is necessary!!
 void createBSTree(node *&root, int *arr,int n, bool isM){
     for(int i=0; i<n; i++){
         insertNode(root, arr[i],isM);
@@ -75,7 +75,6 @@ void preOrder(node *root){
 
 int main(){
     freopen("1043.txt","r",stdin);
-
 
     int n;
     cin>>n;
@@ -107,5 +106,4 @@ int main(){
         cout<<" "<<post[i];
     }
     cout<<endl;
-
 }

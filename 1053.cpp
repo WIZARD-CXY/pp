@@ -16,12 +16,12 @@ vector<int> edge[101];
 bool vis[101];
 int weight[101];
 
-bool dfs(int curweight,int curnode){
+void dfs(int curweight,int curnode){
     curweight+=weight[curnode];
     vis[curnode]=1;
 
     if(curweight>s){
-        return false;
+        return ;
     }
 
     if(edge[curnode].size()==0 && curweight==s)//leaf node found and it is a solution
@@ -31,6 +31,7 @@ bool dfs(int curweight,int curnode){
         for(int i=1; i<path.size(); i++){
             cout<<" "<<path[i];
         }
+        
         cout<<endl;
         path.pop_back();
 
@@ -56,18 +57,13 @@ bool dfs(int curweight,int curnode){
         } while(max_id!=-1);
         path.pop_back();
     }
-    return true;
 }
 
 
 int main(){
-
-#ifdef d
     freopen("1053.txt","r",stdin);
-
-#endif
+    
     cin>>n>>m>>s;
-
 
     for(int i=0; i<n; i++){
         cin>>weight[i];
